@@ -1,0 +1,240 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(88, 73, 73);
+}
+
+.main__button {
+  font-size: 20px;
+  display: block;
+  background-color: deeppink;
+  border: none;
+  border-radius: 25px;
+  width: 200px;
+  height: 50px;
+  color: #fff;
+  margin-bottom: 60px;
+  cursor: pointer;
+}
+
+.main__title {
+  color: deeppink;
+  font-size: 64px;
+  text-align: center;
+}
+
+.main__span {
+  display: block;
+  text-align: center;
+  font-size: 28px;
+}
+
+.main__text {
+  text-align: center;
+  font-size: 28px;
+  margin-top: 10px;
+}
+
+.section1 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(88, 73, 73);
+}
+
+.section__title {
+  font-size: 40px;
+  font-weight: bold;
+  color: deeppink;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.section1__text {
+  text-align: center;
+  font-size: 28px;
+}
+
+.section1__cards {
+  display: flex;
+  gap: 30px;
+}
+
+.section1__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 335px;
+  border: 0.5px solid brown;
+  padding-top: 20px;
+  border-radius: 8px;
+  color: rgb(125, 122, 122);
+}
+.section1__card-image {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: antiquewhite;
+  border-radius: 50%;
+}
+
+.section1__card-list {
+  padding-left: 20px;
+  margin: 10px 0 0 0;
+}
+
+.section1__card-item {
+  margin: 6px 6px;
+  padding-bottom: 5px;
+}
+
+.section2__item {
+  margin-bottom: 18px;
+}
+
+.section1__card-text_color_brown {
+  color: brown;
+  font-weight: bold;
+}
+
+.section1__card-text_color_pink {
+  color: deeppink;
+  font-weight: bold;
+}
+
+.section1__highlight {
+  font-size: 20px;
+  padding-top: 15px;
+  padding-bottom: 40px;
+}
+
+.section1__summary {
+  color: deeppink;
+  font-weight: bold;
+}
+
+.section2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: rgb(88, 73, 73);
+}
+
+.section2__list {
+  padding-bottom: 25px;
+  counter-reset: step; /* reset counter for numbered badges */
+  padding-left: 0; /* remove default ol padding so we can position badges */
+  margin-left: 0;
+  list-style-type: none;
+}
+
+.section2__text {
+  text-align: center;
+  font-size: 28px;
+}
+.section2__span {
+  text-align: center;
+  display: block;
+}
+
+.section2__item {
+  font-size: 20px;
+  text-align: center;
+  position: relative;
+  counter-increment: step;
+  padding-left: 72px; /* space for the circular number */
+  margin-bottom: 20px;
+}
+
+.section2__list-header {
+  font-weight: bold;
+}
+
+/* badge for numbered steps */
+.section2__item::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: deeppink;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+}
+.section2__video {
+  padding-bottom: 40px;
+}
+
+.section3 {
+  display: flex;
+  flex-direction: column;
+}
+.section3__cards {
+  display: grid;
+  
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  column-gap: 20px; 
+  row-gap: 16px;
+  align-items: start;
+  margin: 0; 
+  padding: 0; 
+}
+
+.section3__text {
+  text-align: center;
+  font-size: 28px;
+}
+
+.section3__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style-type: none;
+  width: 100%;
+  max-width: none;
+  border: 0.1px solid gray;
+  padding: 20px 12px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+
+.section3__card-title {
+  color: #000;
+  font-weight: bold;
+}
+
+.section3__card-image {
+  width: 60px;
+  height: 60px;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background-color: deeppink;
+}
+
+.section3__card-par {
+  color: hsl(330 20% 45%);
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .section3__cards {
+    grid-template-columns: 1fr;
+  }
+  .section3__card {
+    max-width: 100%;
+  }
+}
