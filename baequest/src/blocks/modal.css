@@ -7,8 +7,11 @@
   background-color: #00000066;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+   padding: 20px;
   visibility: hidden;
+  box-sizing: border-box;
+
 }
 
 .modal_is-opened {
@@ -21,9 +24,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   background-color: #fff;
   border-radius: 8px;
+   max-height: 90vh; 
+  overflow-y: auto; 
 }
 
 .modal__form {
@@ -32,7 +37,6 @@
 }
 
 .modal__fieldset {
-  width: 240px;
   padding: 0;
   box-sizing: border-box;
   display: flex;
@@ -92,4 +96,51 @@
   cursor: not-allowed;
   opacity: 0.6;
   pointer-events: none;
+}
+
+.interests-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.interest-option {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 8px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  background-color: #fff;
+  color: #333;
+  user-select: none;
+}
+
+/* Hide checkbox input */
+.interest-option input[type="checkbox"] {
+  display: none;
+}
+
+/* Selected (pink) style */
+.interest-option.selected {
+  background-color: deeppink;
+  border-color: #ff69b4;
+  color: #fff;
+}
+
+/* Hover effect */
+.interest-option:hover {
+  border-color: #ff69b4;
+  background-color: #ffe4e9;
+}
+
+/* Optional focus for accessibility */
+.interest-option:focus-within {
+  outline: 2px solid #ff69b4;
+  outline-offset: 3px;
 }

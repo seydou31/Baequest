@@ -29,3 +29,46 @@
   margin-right: 16px;
   cursor: pointer;
 }
+
+.header__user{
+   display: flex; 
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 10px;
+   padding: 10px 15px 10px 0;
+   box-sizing: border-box;
+}
+
+.header__user-initial{
+     width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+}
+
+.header__username{
+    margin: 0;
+    color: white;
+}
+
+.header__link{
+    text-decoration: none;
+    color:aliceblue;
+    font-size: large;
+}
+
+.header__link{
+    cursor:pointer;
+}
+
+.header__logout{
+    cursor: pointer;
+    font-size: large;
+    color: aliceblue;
+}

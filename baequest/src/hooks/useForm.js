@@ -14,6 +14,7 @@ export function useForm(defaultValues) {
       return (newErrors.email =
         "Please provide a valid email (e.g., user@example.com");
     }
+  
     if (!passwordPattern.test(data.password)) {
       return (newErrors.password =
         "password requires at least 8 characters, one uppercase, one lowercase, one number, and one special character:");
@@ -41,5 +42,5 @@ export function useForm(defaultValues) {
     setValues(defaultValues);
   };
 
-  return { errors, values, handleChange, handleReset };
+  return { errors, values, handleChange, handleReset, setValues };
 }

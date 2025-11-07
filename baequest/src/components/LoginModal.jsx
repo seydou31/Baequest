@@ -1,48 +1,28 @@
-import React, { useState } from "react";
-import closeBtn from "../assets/close-button.svg";
-import { createUser, login } from "../utils/api.js";
-
-import "../blocks/modal.css";
 import { useForm } from "../hooks/useForm.js";
+import closeBtn from "../assets/close-button.svg";
+import "../blocks/modal.css";
 
-export default function CreateAccountModal({
-  isOpen,
-  onClose,
-  openCreateProfileModal,
-}) {
+export default function LoginModal({ isOpen, onClose, handleLoginSubmit }) {
   const { errors, values, handleChange, handleReset } = useForm({
     email: "",
     password: "",
   });
 
-  const [confirmError, setConfirmError] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const hasErrors = errors && Object.keys(errors).length > 0;
-  const emptyFields =
-    !values.email || !values.password || confirmPassword.length === 0;
+  const emptyFields = !values.email || !values.password;
   const isSubmitDisabled = hasErrors || emptyFields;
 
   function handleSubmit(e) {
     e.preventDefault();
-
-    createUser(values)
-      .then(() => {
-        handleReset();
-        setConfirmPassword("");
-        setConfirmError("");
-        onClose();
-        return login(values);
-      })
-      .then(() => {
-        openCreateProfileModal();
-      })
-      .catch(console.error);
+    handleLoginSubmit(values).then(() => {
+      handleReset();
+    }).catch(console.error);
   }
 
   return (
     <div className={`modal ${isOpen ? "modal_is-opened" : ""}`}>
       <div className="modal__content">
-        <h2 className="modal__title">Create Account</h2>
+        <h2 className="modal__title">Login</h2>
         <button type="button" className="modal__close-btn" onClick={onClose}>
           <img
             src={closeBtn}
@@ -58,7 +38,7 @@ export default function CreateAccountModal({
             <input
               type="email"
               className="modal__input"
-              id="email"
+              id="loginemail"
               placeholder="Enter email"
               name="email"
               value={values.email}
@@ -73,35 +53,12 @@ export default function CreateAccountModal({
             <input
               type="password"
               className="modal__input"
-              id="password"
+              id="loginpassword"
               name="password"
               value={values.password}
               placeholder="Create Password"
               onChange={handleChange}
             />
-            <label htmlFor="confirmpassword" className="modal__label">
-              Confirm Password
-            </label>
-            <input
-              type="password"
-              className="modal__input"
-              id="confirmpassword"
-              name="confirmpassword"
-              placeholder="Confirm Password"
-              value={confirmPassword}
-              onChange={(e) => {
-                setConfirmPassword(e.target.value);
-                if (values.password !== e.target.value) {
-                  setConfirmError("Passwords do not match");
-                  return;
-                } else {
-                  setConfirmError("")
-                }
-              }}
-            />
-            {confirmError && (
-              <p className="modal__validation">{confirmError}</p>
-            )}
             {errors.password && (
               <p className="modal__validation">{errors.password}</p>
             )}
@@ -110,7 +67,7 @@ export default function CreateAccountModal({
               className="modal__submit-btn"
               disabled={isSubmitDisabled}
             >
-              Continue
+              Login
             </button>
           </fieldset>
         </form>
